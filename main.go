@@ -10,9 +10,11 @@ import (
 )
 
 func main() {
+	cfg := readConfig()
 	e := echo.New()
-	e.GET("/", printHeader)
-	addr := "0.0.0.0:8080"
+	e.GET("/*", printHeader)
+
+	addr := fmt.Sprintf("%s:%d", cfg.serverAddr, cfg.serverPort)
 	log.Fatalln(e.Start(addr))
 }
 

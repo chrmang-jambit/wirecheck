@@ -24,5 +24,7 @@ COPY --from=build /go/bin/service .
 
 EXPOSE 8080
 
+ENV SERVER_ADDR=0.0.0.0
+
 # Run
 CMD ["/app/service"]
