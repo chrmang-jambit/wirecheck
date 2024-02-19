@@ -43,4 +43,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: "ghcr.io/${{ github.repository }}:$(git rev-parse --short HEAD)"
+          tags: "ghcr.io/${{ github.repository }}:${{ env.SHORT_SHA }}"
