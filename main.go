@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"slices"
 	"strings"
 
 	"github.com/labstack/echo/v4"
@@ -25,6 +26,7 @@ func printHeader(ctx echo.Context) error {
 		v1 := strings.Join(v, ",")
 		lines = append(lines, fmt.Sprintf("%s:%s", k, v1))
 	}
+	slices.Sort(lines)
 	ret := strings.Join(lines, "\n") + "\n"
 	ctx.String(http.StatusOK, ret)
 	return nil
